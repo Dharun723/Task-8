@@ -1,0 +1,59 @@
+package Ex;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+public class Excel {
+	public static void main (String [] args) throws IOException 
+	{
+	FileOutputStream file =new FileOutputStream (System.getProperty("uder.d")+"\\task\\Book7.xlsx");
+	XSSFWorkbook workbook1 = new XSSFWorkbook();
+	//workbook1.getSheet("Sheet1");
+	XSSFSheet sheet = workbook1.createSheet("Sheet1");
+	XSSFRow row1 = sheet.createRow(0);
+	 row1 .createCell(0).setCellValue ("Name");
+	 row1 .createCell(1).setCellValue ("age");
+	 row1 .createCell(2).setCellValue ("email");
+	 
+	 XSSFRow row2 = sheet.createRow(0);
+	 row2 .createCell(0).setCellValue ("Jhon doe");
+	 row2 .createCell(1).setCellValue ("30");
+	 row2 .createCell(2).setCellValue ("john@test.com");
+	 
+
+	 XSSFRow row3 = sheet.createRow(0);
+	 row3 .createCell(0).setCellValue ("Bobsmith");
+	 row3 .createCell(1).setCellValue ("35");
+	 row3 .createCell(2).setCellValue ("jack@example.com");
+	 
+	 
+	 
+	  workbook1.write(file);
+	  workbook1.close();
+	  file.close();
+	  
+	System.out.println("file is created successfully");
+	
+	
+	
+}
+
+
+}
+
+
+
+
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.3.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.3.0</version>
